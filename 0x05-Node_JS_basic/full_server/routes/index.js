@@ -6,17 +6,17 @@ function Routing(app) {
   const rout = express.Router();
   app.use('/', rout);
 
-  rout.get('/', (request, response) => {
-    AppController.getHomepage(request, response);
+  rout.get('/', (req, res) => {
+    AppController.getHomepage(req, res);
   });
 
-  rout.get('/students', (request, response) => {
-    StudentsController.getAllStudents(request, response, process.argv[2]);
+  rout.get('/students', (req, res) => {
+    StudentsController.getAllStudents(req, res, process.argv[2]);
   });
-  
-  rout.get('/students/:major', (request, response) => {
-    StudentsController.getAllStudentsByMajor(request, response, process.argv[2]);
-  }); 
+
+  rout.get('/students/:major', (req, res) => {
+    StudentsController.getAllStudentsByMajor(req, res, process.argv[2]);
+  });
 }
 
 export default Routing;

@@ -8,16 +8,16 @@ function readDatabase(filePath) {
         return;
       }
       const cont = data.toString().split('\n');
-      
-      let students = cont.filter((item) => item);
-      student = students.map((item) => item.split(','));
 
-      const field = {};
+      let students = cont.filter((item) => item);
+      students = students.map((item) => item.split(','));
+
+      const fields = {};
       for (const x in students) {
         if (x !== 0) {
           if (!fields[students[x][3]]) fields[students[x][3]] = [];
-          fields[students[x][3]].push(studnets[x][0]);
-        } 
+          fields[students[x][3]].push(students[x][0]);
+        }
       }
       delete fields.field;
       resolve(fields);
@@ -25,4 +25,4 @@ function readDatabase(filePath) {
   });
 }
 
-exports default readDatabase;
+export default readDatabase;
